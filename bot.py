@@ -764,18 +764,11 @@ async def main():
         # Запускаем бота
         await dp.start_polling(bot)
     except Exception as e:
-        print(f"❌ Критическая ошибка: {e}")        
-    print(f"Токен: {config.BOT_TOKEN[:10]}...")
-    print(f"Админ ID: {config.ADMIN_ID}")
-    
-    # Запускаем планировщик
-    start_scheduler()
-    
-    # Запускаем бота
-    await dp.start_polling(bot)
+        print(f"❌ Критическая ошибка: {e}")
 
+# Это должно быть В КОНЦЕ ФАЙЛА, ВНЕ ВСЕХ ФУНКЦИЙ:
+if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
         print("Бот остановлен")
-    asyncio.run(main())
